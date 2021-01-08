@@ -8,13 +8,38 @@
 <style></style>
 
 
-<body>
-    <button type="button" id="btn-start" style="z-index: 3;">Start</button>
-    <div id="canvas">
-        <canvas id="canvas1" width="800" height="600" ></canvas>
-        <canvas id="canvas2" width="800" height="600" ></canvas>
+<body class="background">
+    <div id="title-container">
+    <h3 id="title">Mopping Challenge</h3>
+    <h3 id="title-sub">with Leo the Corgi</h3>
+     </div>
+   <div id="menu-container">
+        <button type="button" id="btn-start" style="z-index: 100;">Start<img class='selector' src="./src/assets/dogpaw.png" width="50px"></button>
+        <button type="button" id="btn-restart" style="z-index: 100;" class="hidden">Restart</button>
+        <img class='leopic' src="./src/assets/leom.png" >
+        
+    <br>
+    
+        <button type="button" id="btn-instruction" style="z-index: 100;">Instruction
+        <img class='selector' src="./src/assets/dogpaw.png" width="50px"></button>
     </div>
-<!-- <div id="note"> game explaination</div> -->
+    
+    
+    <div id="instruction" class='instruction hidden'>
+        <p>Leo the corgi just came back from another adventure</p>
+        <p>He is so dirty and brought so much random stuff back</p>
+        <p>W,A,S,D to move and clean the stuff on the floor</p>
+        <p>Make sure don't let him bump you!</p>
+        <button type="button" id="btn-back">Back To Menu<img class='selector' src="./src/assets/dogpaw.png" width="50px"></button>
+    </div>
+    
+    <div id="canvas" class="hidden">
+        <canvas id="canvas0" width="800" height="600" style="z-index: 3" ></canvas>
+        <canvas id="canvas1" width="800" height="600" style="z-index: 2" ></canvas>
+        <canvas id="canvas2" width="800" height="600" style="z-index: 1" ></canvas>
+    </div>
+    <div id="testing"></div>
+
 <script type="text/javascript" src="./src/js/main.js"></script>
 <script type="text/javascript" src="./src/js/human.js"></script>
 <script type="text/javascript" src="./src/js/spot.js"></script>

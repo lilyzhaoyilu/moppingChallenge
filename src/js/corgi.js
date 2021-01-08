@@ -4,26 +4,28 @@ var corgiObj = function() {
   this.x = [];
   this.y = [];
   this.speed = [];
+  this.status = "walk"
   this.img = new Image();
+  this.corgiMotionTimer = 0;
+  this.corgiMotionFrame = 0;
 }
 
 corgiObj.prototype.num = 2;
 
 corgiObj.prototype.init = function(){
-  // console.log("corgi")
   for (var i = 0; i < this.num; i++){
     this.inCanvas[i] = false // true means on canvas
     this.x[i] = 0;
     this.y[i] = 0;
   }
-  this.img.src = './src/assets/corgi.png';
+  this.img.src = './src/assets/corginotail.png';
 }
 
 corgiObj.prototype.spawn = function(i) {
   this.inCanvas[i] = true;
-  this.speed[i] = Math.random() ;
-  this.x[i] = Math.random()*300 + 100;
-  this.y[i] = Math.random()*450 + 100;
+  this.speed[i] = Math.random();
+  this.y[i] = Math.random()*560;
+  this.x[i] = -10; 
 }
 
 corgiObj.prototype.respawn = function(i) {
@@ -33,15 +35,25 @@ corgiObj.prototype.respawn = function(i) {
 
 
 corgiObj.prototype.draw = function () {
+  var displayCorgiY;
+  // if(this.status == "walk"){
+  //   displayCorgiY = 
+  // }
+
+
+  this.corgiMotionTimer += deltaTime
+
+  if(this.corgiMotionTimer > 100){
+    this.corgiMotionFrame = ((this.corgiMotionFrame + 1) % 4);
+    this.corgiMotionTimer %= 100;
+  }
+
   for (var i = 0; i < this.num; i++){
-    // console.log("corgi",this)
     if(this.inCanvas[i]){
-      this.x[i] = (this.x[i] > 530 || this.x[i] < -10) ? 0 : (this.x[i] + this.speed[i]);
-      // console.log(this.x[i]);
-      this.y[i] = (this.y[i] > 530 || this.y[i] < -10) ? 0 : (this.y[i] + this.speed[i]);
-      // console.log("corgi", this)
-      ctx1.drawImage(this.img,this.x[i],this.y[i], 50,50);
+       (this.x[i] > 800 || this.x[i] < -10) ? this.spawn(i) : this.x[i] = (this.x[i] + this.speed[i]);
     }
+
+    ctx1.drawImage(this.img, 102 + this.corgiMotionFrame*67,274, 50,30,this.x[i],this.y[i], 80,48);
   }
 
 }
