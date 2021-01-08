@@ -4,7 +4,7 @@ var spotObj = function (){
   this.alive = [];
   this.x = [];
   this.y = []; 
-  this.img = new Image();
+  this.imgs = [];
 }
 
 spotObj.prototype.num = 10;
@@ -14,12 +14,15 @@ spotObj.prototype.init = function(){
     this.alive[i] = false // true means on canvas
     this.x[i] = 0;
     this.y[i] = 0;
+    this.imgs[i] = new Image();
+    this.imgs[i].src = `./src/assets/corgidrops/drop${Math.floor(Math.random()*8)}`
   }
-  this.img.src = './src/assets/spot.png'
+
 }
 
 spotObj.prototype.born = function(i) {
   this.alive[i] = true;
+  this.imgs[i].src = `./src/assets/corgidrops/drop${Math.floor(Math.random()*8)}.png`
   this.x[i] = Math.random()*750 + 20;
   this.y[i] = Math.random()*550 + 20;
 }
@@ -32,7 +35,7 @@ spotObj.prototype.draw = function () {
   for (var i = 0; i < this.num; i++){
     // console.log("spot",this)
     if(this.alive[i]){
-      ctx1.drawImage(this.img,this.x[i],this.y[i]);
+      ctx1.drawImage(this.imgs[i],this.x[i],this.y[i], 25,20);
     }
   }
 

@@ -3,6 +3,7 @@ var dataObj = function(){
   this.score = 0;
   this.gameStart = false;
   this.gameOver = false;
+  this.countDown = 30; //change to 30 later
 }
 
 dataObj.prototype.scoring = function(human, spot){
@@ -25,13 +26,8 @@ dataObj.prototype.checkcollision = function(human, corgi){
       setTimeout(()=>{
       human.ableToMove = true;
       }, 2000)
-
     }}
-
-  
 }
-
-
 
 dataObj.prototype.draw = function(){
   this.scoring(human,spot);
@@ -39,12 +35,23 @@ dataObj.prototype.draw = function(){
   
   var w = can1.width;
   var h = can1.height;
-
+  
+  if(this.gameStart && !this.gameOver){
   ctx1.save();
   ctx1.fillStyle = "#fff";
   ctx1.font = "30px Verdana";
   ctx1.shadowColor = "white";
   ctx1.shadowBlur = 10;
   ctx1.fillText("Score：" + this.score, w * 0.5, h - 50);
+  ctx1.fillText("Time" + this.countDown, w * 0.5, h - 30);
   ctx1.restore();
+  }else if(this.gameOver){
+    ctx1.save();
+    ctx1.fillStyle = "rgba(255,255,255," + 1 + ")";
+    ctx1.font = "30px Verdana";
+    ctx1.shadowColor = "white";
+    ctx1.shadowBlur = 10;
+    ctx1.fillText("game over",w * 0.5, h *0.5);
+    ctx1.restore()
+  }
 }
