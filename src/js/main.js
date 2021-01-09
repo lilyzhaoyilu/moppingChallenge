@@ -38,6 +38,11 @@ backButton.onclick = backToMenu;
 var restartButton = document.getElementById("btn-restart");
 restartButton.onclick = restartGame;
 
+var background = document.getElementById("background");
+var leopic = document.getElementById("leopic");
+var bubble = document.getElementById("bubble-container");
+var result = document.getElementById("result");
+
 function showInstruction(){
   instruction.classList.remove("hidden");
   startButton.classList.add("hidden");
@@ -63,8 +68,9 @@ function game() {
   startButton.classList.add("hidden");
   instructionButton.classList.add("hidden");
   title.classList.add("hidden");
-  canvas.classList.remove("hidden");
-
+  
+  background.classList.add("picture");
+  
   init();
   lastTime = Date.now();
   deltaTime = 0;
@@ -84,6 +90,9 @@ function restartGame(){
 
 
 function init() {
+  canvas.classList.remove("hidden");
+  background.classList.add("picture");
+  leopic.classList.add("hidden");
   can0 = document.getElementById("canvas0");// Top layer for effects 
   ctx0 = can0.getContext("2d");
   can1 = document.getElementById("canvas1"); //front layer
@@ -136,7 +145,15 @@ function onKeyR(e){
 
 
 
-
+function displayResult(){
+  if(data.score < 5){
+    return `[○･｀Д´･ ○]<br>owhh you did not clean`
+  }else if (data.score >= 5 && data.score < 15){
+    return (`${data.score} spots!<br> Do better next time!`)
+  }else{
+    return `ヾ(◍°∇°◍)ﾉﾞ<br>You cleant ${data.score} spots!`
+  }
+}
 
 
 
@@ -144,44 +161,51 @@ function onKeyR(e){
 
 
 function gameLoop() {
-  window.requestAnimFrame = (function() {
-    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-      function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
-        return window.setTimeout(callback, 1000 / 60);
-      };
-  })();
-
-
-  requestAnimFrame(gameLoop); 
-
-
-
-  var now=Date.now()
-  deltaTime=now-lastTime //deltaTime is the time that renders every 2 frames
-  lastTime=now
-  
-  if(deltaTime > 50) {
-      deltaTime = 50;
-  }
-
-  
-  ctx0.clearRect(0, 0, canWidth, canHeight);
-  ctx2.drawImage(bgImage,0,0,canWidth,canHeight) // draw background
-  ctx1.clearRect(0, 0, canWidth, canHeight);
-  human.draw();
-  monitorSpotAmount();
-  spot.draw();
-  data.draw();
-  // data.counter();
-  
-  monitorCorgiAmount();
-  corgi.draw();
- 
-
   if(data.gameOver == true){
     removeEventListener("keydown",onKeyP, false);
     removeEventListener("keyup", onKeyR, false);
     restartButton.classList.remove("hidden");
+    canvas.classList.add("hidden");
+    background.classList.remove("picture");
+    leopic.classList.add("leopicrestart");
+    leopic.classList.remove("hidden");
+    bubble.classList.remove("hidden")
+    result.classList.remove("hidden");
+    result.innerHTML = displayResult();
+    // break;
+    }else{
+      window.requestAnimFrame = (function() {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+          function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+            return window.setTimeout(callback, 1000 / 60);
+          };
+      })();
+    
+    
+      requestAnimFrame(gameLoop); 
+    
+    
+    
+      var now=Date.now()
+      deltaTime=now-lastTime //deltaTime is the time that renders every 2 frames
+      lastTime=now
+      
+      if(deltaTime > 50) {
+          deltaTime = 50;
+      }
+    
+      
+      ctx0.clearRect(0, 0, canWidth, canHeight);
+      ctx2.drawImage(bgImage,0,0,canWidth,canHeight) // draw background
+      ctx1.clearRect(0, 0, canWidth, canHeight);
+      human.draw();
+      monitorSpotAmount();
+      spot.draw();
+      data.draw();
+      // data.counter();
+      
+      monitorCorgiAmount();
+      corgi.draw();
     }
 }
 

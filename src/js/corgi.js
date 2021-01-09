@@ -23,7 +23,7 @@ corgiObj.prototype.init = function(){
 
 corgiObj.prototype.spawn = function(i) {
   this.inCanvas[i] = true;
-  this.speed[i] = Math.random();
+  this.speed[i] = Math.random()*1;
   this.y[i] = Math.random()*560;
   this.x[i] = -10; 
 }

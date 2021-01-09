@@ -5,6 +5,7 @@ var spotObj = function (){
   this.x = [];
   this.y = []; 
   this.imgs = [];
+  this.imgsource = [];
 }
 
 spotObj.prototype.num = 10;
@@ -15,16 +16,18 @@ spotObj.prototype.init = function(){
     this.x[i] = 0;
     this.y[i] = 0;
     this.imgs[i] = new Image();
-    this.imgs[i].src = `./src/assets/corgidrops/drop${Math.floor(Math.random()*8)}`
   }
+  for(var i = 0; i < 8; i++){
+    this.imgsource[i] = new Image();
+  this.imgsource[i].src = `./src/assets/corgidrops/drop${i}.png`}
 
 }
 
 spotObj.prototype.born = function(i) {
   this.alive[i] = true;
-  this.imgs[i].src = `./src/assets/corgidrops/drop${Math.floor(Math.random()*8)}.png`
+  this.imgs[i] = this.imgsource[Math.floor(Math.random()*8)];
   this.x[i] = Math.random()*750 + 20;
-  this.y[i] = Math.random()*550 + 20;
+  this.y[i] = Math.random()*500 + 50;
 }
 
 spotObj.prototype.dead = function(i) {
@@ -38,7 +41,6 @@ spotObj.prototype.draw = function () {
       ctx1.drawImage(this.imgs[i],this.x[i],this.y[i], 25,20);
     }
   }
-
 }
 
 

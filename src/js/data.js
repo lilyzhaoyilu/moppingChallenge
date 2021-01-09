@@ -3,18 +3,19 @@ var dataObj = function(){
   this.score = 0;
   this.gameStart = false;
   this.gameOver = false;
-  this.countDown = 30; //change to 30 later
+  this.countDown = 10; //change to 30 later
 }
 
 dataObj.prototype.scoring = function(human, spot){
+  if(this.gameStart && !this.gameOver){
   for(var i = 0; i < spot.num; i++){
     if (!spot.alive[i]) continue;
-    if((human.x <= (spot.x[i] + 50)) && human.y <=(spot.y[i] + 50) && human.x + 50 > spot.x[i] && human.y + 50 > spot.y[i]){
+    if((human.x <= (spot.x[i] + 100)) && human.y <=(spot.y[i] + 100) && human.x + 100 > spot.x[i] && human.y + 100 > spot.y[i]){
      
       this.score++;
       spot.dead(i);
     }
-  }
+  }}
 }
 
 dataObj.prototype.checkcollision = function(human, corgi){
@@ -39,19 +40,19 @@ dataObj.prototype.draw = function(){
   if(this.gameStart && !this.gameOver){
   ctx1.save();
   ctx1.fillStyle = "#fff";
-  ctx1.font = "30px Verdana";
+  ctx1.font = "40px 'Short Stack', cursive";
   ctx1.shadowColor = "white";
   ctx1.shadowBlur = 10;
-  ctx1.fillText("Score：" + this.score, w * 0.5, h - 50);
-  ctx1.fillText("Time" + this.countDown, w * 0.5, h - 30);
-  ctx1.restore();
-  }else if(this.gameOver){
-    ctx1.save();
-    ctx1.fillStyle = "rgba(255,255,255," + 1 + ")";
-    ctx1.font = "30px Verdana";
-    ctx1.shadowColor = "white";
-    ctx1.shadowBlur = 10;
-    ctx1.fillText("game over",w * 0.5, h *0.5);
-    ctx1.restore()
-  }
+  ctx1.fillText("Score: " + this.score, w * 0.1, 50);
+  ctx1.fillText("Time Left: " + this.countDown, w * 0.6, 50);
+  ctx1.restore();}
+  // }else if(this.gameOver){
+  //   ctx1.save();
+  //   ctx1.fillStyle = "rgba(255,255,255," + 1 + ")";
+  //   ctx1.font = "30px Verdana";
+  //   ctx1.shadowColor = "white";
+  //   ctx1.shadowBlur = 10;
+  //   // ctx1.fillText("game over",w * 0.5, h *0.5);
+  //   ctx1.restore()
+  // }
 }
