@@ -8,15 +8,19 @@
 <style></style>
 
 
-<body class="background">
+<body class="background" id="background">
     <div id="title-container">
     <h3 id="title">Mopping Challenge</h3>
     <h3 id="title-sub">with Leo the Corgi</h3>
-     </div>
+    </div>
+
    <div id="menu-container">
         <button type="button" id="btn-start" style="z-index: 100;">Start<img class='selector' src="./src/assets/dogpaw.png" width="50px"></button>
-        <button type="button" id="btn-restart" style="z-index: 100;" class="hidden">Restart</button>
-        <img class='leopic' src="./src/assets/leom.png" >
+        <button type="button" id="btn-restart" style="z-index: 100;" class="hidden">Restart<img class='selector' src="./src/assets/dogpaw.png" width="50px"></button>
+        <div id='bubble-container' class="hidden">
+            <img id="bubble"   src="./src/assets/bubbletrans2.png">
+            <span id="result" class="hidden"></span></div>
+        <img id='leopic' class='leopic' src="./src/assets/leom.png" >
         
     <br>
     

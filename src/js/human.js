@@ -45,8 +45,8 @@ humanObj.prototype.draw = function () {
   }
   }else{
     this.dizzyMotionTimer += (deltaTime > 50) ? 50 : deltaTime;
-    console.log("deltatime", deltaTime)
-    console.log(this.dizzyMotionTimer)
+    // console.log("deltatime", deltaTime)
+    // console.log(this.dizzyMotionTimer)
     if(this.dizzyMotionTimer > 200){
       this.dizzyMotionFrame = (this.dizzyMotionFrame + 1)% 8;
       this.dizzyMotionTimer %= 200;

@@ -40,6 +40,12 @@
   font-family: 'Short Stack', cursive;;
 }
 
+.picture{
+  background-image: url("../assets/pagebackground.png");
+  text-align: center;
+  font-family: 'Short Stack', cursive;
+}
+
 #title{
   font-size: calc(10vh);
   text-align: center;
@@ -72,7 +78,15 @@ button:hover > img, button{
 
 .leopic{
   position: absolute;
-  right: calc(10vw);
+  right: calc(17vw);
+  width: calc(35vh);
+  z-index: -10;
+}
+
+.leopicrestart{
+  position: absolute;
+  right: calc(15vw);
+  top:calc(15vw);
   width: calc(35vh);
   z-index: -10;
 }
@@ -93,4 +107,22 @@ button:hover > img, button{
   background-size: cover; */
   font-size:4vh;
   font-weight: 500;
+}
+#btn-restart{
+  position: absolute;
+  left: calc(40vw);
+  top:calc(35vw);
+  z-index: 1010;
+}
+#bubble{
+  position: absolute;
+  top:10%;
+  right: 35%;
+}
+
+#result{
+  position: absolute;
+  top:20%;
+  right: 41%;
+  font-size: 30px;
 }
