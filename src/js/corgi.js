@@ -32,11 +32,6 @@ corgiObj.prototype.respawn = function(i) {
   this.inCanvas[i] = false;
 }
 
-corgiObj.prototype.statusMonitor = function(){
-  
-}
-
-
 
 
 corgiObj.prototype.draw = function () {
