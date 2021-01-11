@@ -1,4 +1,4 @@
-# moppingChallenge
+# Mopping Challenge with Leo The Corgi
 A canvas JavaScript game.
 [Live Demo](https://lilyzhaoyilu.github.io/moppingChallenge/)
 
