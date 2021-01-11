@@ -3,7 +3,7 @@ var dataObj = function(){
   this.score = 0;
   this.gameStart = false;
   this.gameOver = false;
-  this.countDown = 10; //change to 30 later
+  this.countDown = 15; //change to 30 later
 }
 
 dataObj.prototype.scoring = function(human, spot){

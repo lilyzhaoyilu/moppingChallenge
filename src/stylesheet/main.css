@@ -1,28 +1,37 @@
 #canvas{
   position: relative;
-  width: 800px;
-  height: 600px;
+  /* width: 800px;
+  height: 600px; */
   margin: 0;
 }
 
 #canvas0{
   position: absolute;
-  bottom: 0;
-  left: calc(50vw-400px);
+  top: 50%;
+  left:50%;
+  margin: 100px 0 0 -400px;
+  /* margin-top: calc(50vh - 300px);
+  margin-left: calc(50vw- 400px); */
+  /* background-color: red; */
 
 }
 
 #canvas1{
   position: absolute;
-  bottom: 0;
-  left: calc(50vw-400px);
+  top: 50%;
+  left:50%;
+  margin: 100px 0 0 -400px;
+  /* margin-top: calc(50vh - 300px);
+  margin-left: calc(50vw- 400px); */
 }
 
 #canvas2{
   position: absolute;
-  bottom: 0;
-  left: calc(50vw-400px);
-
+  top: 50%;
+  left:50%;
+  margin: 100px 0 0 -400px;
+  /* margin-top: calc(50vh - 300px);
+  margin-left: calc(50vw- 400px); */
 }
 
 .hidden{
@@ -56,7 +65,7 @@
   font-size: calc(8vh);
   text-align: center;
   font-style: italic;
-  margin: 0 0 50px;
+  margin: 0 0 100px;
 }
 
 button{
@@ -125,4 +134,8 @@ button:hover > img, button{
   top:20%;
   right: 41%;
   font-size: 30px;
+}
+
+.instruction-bold{
+  font-weight:800;
 }

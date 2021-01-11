@@ -121,10 +121,6 @@ function init() {
   human = new humanObj();
   human.init();
 
-  // for (var i = 0; i <23; i++){
-  //   humanMotion[i] = new Image();
-  //   humanMotion[i].src = `./src/assets/human${i}.png`
-  // }
 
   spot = new spotObj();
   spot.init();
@@ -134,6 +130,7 @@ function init() {
 }
 
 function onKeyP(e) {
+  console.log(e.key);
     keysDown[e.key] = true;
 }
 
@@ -164,6 +161,7 @@ function gameLoop() {
   if(data.gameOver == true){
     removeEventListener("keydown",onKeyP, false);
     removeEventListener("keyup", onKeyR, false);
+    keysDown = {}
     restartButton.classList.remove("hidden");
     canvas.classList.add("hidden");
     background.classList.remove("picture");
@@ -172,16 +170,15 @@ function gameLoop() {
     bubble.classList.remove("hidden")
     result.classList.remove("hidden");
     result.innerHTML = displayResult();
-    // break;
     }else{
-      window.requestAnimFrame = (function() {
-        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-          function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
-            return window.setTimeout(callback, 1000 / 60);
+    window.requestAnimFrame = (function() {
+      return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+        function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+          return window.setTimeout(callback, 1000 / 60);
           };
       })();
     
-    
+      /////////////////////game looping...//////////////
       requestAnimFrame(gameLoop); 
     
     
