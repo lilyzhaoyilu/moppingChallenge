@@ -135,6 +135,27 @@ button:hover > img, button{
   font-size: 30px;
 }
 
-.instruction-bold{
-  font-weight:800;
+.instruction-bold {
+  font-weight: 800;
+}
+
+
+
+#about img{
+  width: 4vw;
+  display: inline-block;
+}
+
+.about-icon1{
+  margin: 0 0 0 70vw;
+}
+.about-icon2{
+  margin:0 10px 0 10px;
+}
+
+#about{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+
 }
