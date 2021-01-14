@@ -130,7 +130,7 @@ function init() {
 }
 
 function onKeyP(e) {
-  console.log(e.key);
+  // console.log(e.key);
     keysDown[e.key] = true;
 }
 
@@ -209,7 +209,7 @@ function gameLoop() {
 setInterval(countingDown, 1000);
 function countingDown() {
   if (data){
-  if (data.countDown === 0) {
+  if (data.countDown <= 1) {
     clearInterval(countingDown);
     data.gameOver = true;
   } else {

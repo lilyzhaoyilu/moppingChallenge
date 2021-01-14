@@ -142,7 +142,7 @@ button:hover > img, button{
 
 
 #about img{
-  width: 4vw;
+  width: 2vw;
   display: inline-block;
 }
 
@@ -157,5 +157,13 @@ button:hover > img, button{
   position: fixed;
   left: 0;
   bottom: 0;
+  /* background-color: #f6f6f6; */
+  width: 100%;
 
+}
+
+#about span{
+  
+  font-size: 2vw;
+  text-align: center;
 }
