@@ -47,7 +47,8 @@ dataObj.prototype.draw = function(){
   var time = parseFloat(this.countDown).toFixed(0);
   ctx1.fillText("Score: " + this.score, w * 0.1, 50);
   ctx1.fillText("Time Left: " + time, w * 0.6, 50);
-  ctx1.restore();}
+  ctx1.restore();
+}
   // }else if(this.gameOver){
   //   ctx1.save();
   //   ctx1.fillStyle = "rgba(255,255,255," + 1 + ")";
