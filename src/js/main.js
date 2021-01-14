@@ -146,9 +146,9 @@ function displayResult(){
   if(data.score < 5){
     return `[○･｀Д´･ ○]<br>owhh you did not clean`
   }else if (data.score >= 5 && data.score < 15){
-    return (`${data.score} spots!<br> Do better next time!`)
+    return (`${data.score} spots!<br> Do pawsome next time!`)
   }else{
-    return `ヾ(◍°∇°◍)ﾉﾞ<br>You cleant ${data.score} spots!`
+    return `ヾ(◍°∇°◍)ﾉﾞ<br>You cluuuned ${data.score} spots!`
   }
 }
 
