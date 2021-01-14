@@ -138,3 +138,28 @@ button {
 .instruction-bold {
   font-weight: 800;
 }
+
+#about img {
+  width: 2vw;
+  display: inline-block;
+}
+
+.about-icon1 {
+  margin: 0 0 0 70vw;
+}
+.about-icon2 {
+  margin: 0 10px 0 10px;
+}
+
+#about {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  /* background-color: #f6f6f6; */
+  width: 100%;
+}
+
+#about span {
+  font-size: 2vw;
+  text-align: center;
+}

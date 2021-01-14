@@ -59,17 +59,17 @@ humanObj.prototype.draw = function () {
 }
 
 humanObj.prototype.motion = function(modifier){
-  if ("w" in keysDown) {
+  if ("w" in keysDown || "ArrowUp" in keysDown) {
     this.y = this.y < 5 ? this.y : this.y -= this.speed * modifier; //boarder limitation
   }
-  if ("s" in keysDown) {
+  if ("s" in keysDown || "ArrowDown" in keysDown) {
     this.y = this.y > 550 ? this.y : this.y += this.speed * modifier;
   }
-  if ("a" in keysDown) {
+  if ("a" in keysDown || "ArrowLeft" in keysDown) {
     this.x = this.x < 5? this.x : this.x -= this.speed * modifier;
     this.displayRegularImg = true;
   }
-  if ("d" in keysDown) {
+  if ("d" in keysDown || "ArrowRight" in keysDown) {
     this.x = this.x > 760? this.x : this.x += this.speed * modifier;
     this.displayRegularImg = false;
   }

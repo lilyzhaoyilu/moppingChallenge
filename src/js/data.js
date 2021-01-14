@@ -3,7 +3,7 @@ var dataObj = function(){
   this.score = 0;
   this.gameStart = false;
   this.gameOver = false;
-  this.countDown = 15; //change to 30 later
+  this.countDown = 10; //change to 30 later
 }
 
 dataObj.prototype.scoring = function(human, spot){
@@ -14,6 +14,7 @@ dataObj.prototype.scoring = function(human, spot){
      
       this.score++;
       spot.dead(i);
+      this.countDown = this.countDown + 0.1;
     }
   }}
 }
@@ -43,8 +44,9 @@ dataObj.prototype.draw = function(){
   ctx1.font = "40px 'Short Stack', cursive";
   ctx1.shadowColor = "white";
   ctx1.shadowBlur = 10;
+  var time = parseFloat(this.countDown).toFixed(0);
   ctx1.fillText("Score: " + this.score, w * 0.1, 50);
-  ctx1.fillText("Time Left: " + this.countDown, w * 0.6, 50);
+  ctx1.fillText("Time Left: " + time, w * 0.6, 50);
   ctx1.restore();}
   // }else if(this.gameOver){
   //   ctx1.save();
