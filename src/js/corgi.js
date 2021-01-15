@@ -38,7 +38,7 @@ corgiObj.prototype.spawn = function(i) {
     this.status[i] = "walk"
   }
   this.speed[i] = Math.random()*1;
-  this.y[i] = Math.random()*560;
+  this.y[i] = Math.random()*550 + 10;
   this.x[i] = -10; 
 }
 
