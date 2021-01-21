@@ -47,11 +47,14 @@ function showInstruction(){
   instruction.classList.remove("hidden");
   startButton.classList.add("hidden");
   instructionButton.classList.add("hidden");
+  leopic.classList.add("hidden");
+
 }
 function backToMenu(){
   instruction.classList.add("hidden");
   startButton.classList.remove("hidden");
   instructionButton.classList.remove("hidden");
+  leopic.classList.remove("hidden");
 }
 
 // window.onload=game

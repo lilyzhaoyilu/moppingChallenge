@@ -54,6 +54,7 @@
 }
 
 #title {
+  padding-top: 10vh;
   font-size: calc(10vh);
   text-align: center;
   margin: 0;
@@ -63,7 +64,7 @@
   font-size: calc(8vh);
   text-align: center;
   font-style: italic;
-  margin: 5vh 0 20vh;
+  margin: 3vh 0 10vh;
 }
 
 button {
@@ -108,13 +109,16 @@ button {
   width: calc(40vw);
   text-align: center;
   margin: -5vw 30vw;
-  /* background-image: url('../assets/messageboard.png'); */
+  background-image: url("../assets/messageboard.png");
   background-color: #ffecf2;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   /* background-repeat: no-repeat;
   background-position: center; 
   background-size: cover; */
   font-size: 4vh;
   font-weight: 500;
+  padding: 50px 50px 30px 50px;
 }
 #btn-restart {
   position: absolute;
@@ -163,3 +167,8 @@ button {
   font-size: 2vw;
   text-align: center;
 }
+
+/* #about a:hover{
+  top:-5px;
+  background-color: #ffecf2;
+} */
