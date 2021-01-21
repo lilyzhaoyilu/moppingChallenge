@@ -3,7 +3,10 @@ var dataObj = function(){
   this.score = 0;
   this.gameStart = false;
   this.gameOver = false;
-  this.countDown = 10; //change to 30 later
+  this.countDown = 10;
+  this.heart = 0;
+  this.heartimg = new Image();
+  this.heartimg.src = './src/assets/heart2.png';
 }
 
 dataObj.prototype.scoring = function(human, spot){
@@ -14,7 +17,8 @@ dataObj.prototype.scoring = function(human, spot){
      
       this.score++;
       spot.dead(i);
-      this.countDown = this.countDown + 0.1;
+      this.countDown = this.countDown + 0.2;
+      this.heart += 1;
     }
   }}
 }
@@ -46,7 +50,22 @@ dataObj.prototype.draw = function(){
   ctx1.shadowBlur = 10;
   var time = parseFloat(this.countDown).toFixed(0);
   ctx1.fillText("Score: " + this.score, w * 0.1, 50);
-  ctx1.fillText("Time Left: " + time, w * 0.6, 50);
+  ctx1.fillText("Time Left: " + time, w * 0.4, 50);
+  // ctx1.clearRect(10, 10, 320, 500)
+  ctx1.drawImage(this.heartimg, (this.heart % 4)*16, 0, 16,15, w *0.85, 10, 50, 50) // 16 15
+  if(this.heart != 0 && this.heart % 4 == 0){
+    ctx1.font = "20px 'Short Stack', cursive";
+    ctx1.fillText("+1s ヽ(✿ﾟ▽ﾟ)ノ", w * 0.5, 80);
+  //   setTimeout(function(){
+  //     clearPlusOne();
+  //     // ctx1.clearRect(10, 10, 320, 500)
+  //     console.log("aaa")
+  // },1000);
+  }
+
+
+
+
   ctx1.restore();
 }
   // }else if(this.gameOver){
@@ -59,3 +78,8 @@ dataObj.prototype.draw = function(){
   //   ctx1.restore()
   // }
 }
+
+
+// function clearPlusOne(){
+//   ctx1.clearRect(300, 10, 320, 500)
+// }
