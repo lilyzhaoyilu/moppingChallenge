@@ -8,7 +8,7 @@ var spotObj = function (){
   this.imgsource = [];
 }
 
-spotObj.prototype.num = 10;
+spotObj.prototype.num = 5;
 
 spotObj.prototype.init = function(){
   for (var i = 0; i < this.num; i++){

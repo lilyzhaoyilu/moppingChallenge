@@ -37,8 +37,9 @@ corgiObj.prototype.spawn = function(i) {
   }else if (this.status[i] == "sniff"){
     this.status[i] = "walk"
   }
-  this.speed[i] = Math.random()*1;
-  this.y[i] = Math.random()*550 + 10;
+  this.speed[i] =Math.random() * (1 - 0.5) + 0.5;
+  // console.log(this.speed[i]);
+  this.y[i] = Math.random()*(550 - 10) + 10;
   this.x[i] = -10; 
 }
 
