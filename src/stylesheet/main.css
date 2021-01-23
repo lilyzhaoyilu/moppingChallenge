@@ -134,9 +134,9 @@ button {
 
 #result {
   position: absolute;
-  top: 20%;
+  top: 30%;
   right: 41%;
-  font-size: 30px;
+  font-size: 4vh;
 }
 
 .instruction-bold {

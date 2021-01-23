@@ -9,6 +9,19 @@ var canHeight;
 var canWidth;
 
 
+////local storage
+
+function setHighestScore(currentScore){
+
+  if(localStorage.getItem("highestScore") !== null){
+    if(currentScore > localStorage.getItem("highestScore")){
+      localStorage.setItem("highestScore", currentScore)
+    }
+  }else{
+    localStorage.setItem("highestScore", currentScore)
+  }
+}
+
 ////util
 var deltaTime;
 var keysDown = {};
@@ -19,6 +32,7 @@ var human;
 var spot;
 var data;
 var corgi;
+
 // var humanMotion = [];
 
 
@@ -84,6 +98,7 @@ function game() {
 
 function restartGame(){
   restartButton.classList.add("hidden");
+  bubble.classList.add("hidden");
   init();
   lastTime = Date.now();
   deltaTime = 0;
@@ -146,12 +161,13 @@ function onKeyR(e){
 
 
 function displayResult(){
+  
   if(data.score < 5){
-    return `[○･｀Д´･ ○]<br>owhh you did not clean`
+    return `[○･｀Д´･ ○]<br>owhh you did not clean <br> Huuuman's cleant ${localStorage.getItem("highestScore")} the maost!`
   }else if (data.score >= 5 && data.score < 15){
-    return (`${data.score} spots!<br> Do pawsome next time!`)
+    return (`${data.score} spots!<br> Do pawsome next time!<br> Huuuman's cleant ${localStorage.getItem("highestScore")} the maost!`)
   }else{
-    return `ヾ(◍°∇°◍)ﾉﾞ<br>You cluuuned ${data.score} spots!`
+    return `ヾ(◍°∇°◍)ﾉﾞ<br>You cluuuned ${data.score} spots!<br> Huuuman's cleant ${localStorage.getItem("highestScore")} the maost!`
   }
 }
 
@@ -172,7 +188,13 @@ function gameLoop() {
     leopic.classList.remove("hidden");
     bubble.classList.remove("hidden")
     result.classList.remove("hidden");
+    
     result.innerHTML = displayResult();
+    setHighestScore(data.score)
+    console.log("local highest score",localStorage.getItem("highestScore"));
+
+
+
     }else{
     window.requestAnimFrame = (function() {
       return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
