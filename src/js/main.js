@@ -161,13 +161,15 @@ function onKeyR(e){
 
 
 function displayResult(){
+  var highestScore = localStorage.getItem("highestScore") ? ` <br> Huuuman's cleant ${localStorage.getItem("highestScore")} the maost!` : ``;
+  
   
   if(data.score < 5){
-    return `[○･｀Д´･ ○]<br>owhh you did not clean <br> Huuuman's cleant ${localStorage.getItem("highestScore")} the maost!`
+    return `[○･｀Д´･ ○]<br>owhh you did not clean???${highestScore}`
   }else if (data.score >= 5 && data.score < 15){
-    return (`${data.score} spots!<br> Do pawsome next time!<br> Huuuman's cleant ${localStorage.getItem("highestScore")} the maost!`)
+    return (`${data.score} spots!<br> Do pawsome next time! ${highestScore}`)
   }else{
-    return `ヾ(◍°∇°◍)ﾉﾞ<br>You cluuuned ${data.score} spots!<br> Huuuman's cleant ${localStorage.getItem("highestScore")} the maost!`
+    return `ヾ(◍°∇°◍)ﾉﾞ<br>You cluuuned ${data.score} spots! ${highestScore}`
   }
 }
 
