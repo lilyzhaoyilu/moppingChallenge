@@ -135,9 +135,9 @@ button:hover > img, button{
 
 #result{
   position: absolute;
-  top:20%;
+  top: 30%;
   right: 41%;
-  font-size: 30px;
+  font-size: 4vh;
 }
 
 .instruction-bold {
@@ -176,4 +176,15 @@ button:hover > img, button{
 /* #about a:hover{
   top:-5px;
   background-color: #ffecf2;
+<<<<<<< Updated upstream
+=======
+} */
+
+
+/* #bubble-container{
+  background-image: url("../assets/bubbletrans2.png");
+} */
+/* #result{
+  background-image: url("../assets/bubbletrans2.png");
+>>>>>>> Stashed changes
 } */
