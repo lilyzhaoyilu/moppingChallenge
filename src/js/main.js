@@ -165,7 +165,7 @@ function displayResult(){
   
   
   if(data.score < 5){
-    return `[○･｀Д´･ ○]<br>owhh you did not clean???${highestScore}`
+    return `[○･｀Д´･ ○] Only ${data.score}<br>owhh you did not clean???${highestScore}`
   }else if (data.score >= 5 && data.score < 15){
     return (`${data.score} spots!<br> Do pawsome next time! ${highestScore}`)
   }else{
