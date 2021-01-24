@@ -191,8 +191,8 @@ function gameLoop() {
     bubble.classList.remove("hidden")
     result.classList.remove("hidden");
     
-    result.innerHTML = displayResult();
     setHighestScore(data.score)
+    result.innerHTML = displayResult();
     console.log("local highest score",localStorage.getItem("highestScore"));
 
 
